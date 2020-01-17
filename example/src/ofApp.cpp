@@ -123,6 +123,19 @@ public:
                     }
                 }
                 
+                ImGui::NewLine();
+                
+                static int seed = noise.GetSeed();
+                if ( ImGui::SliderInt( "Seed", &seed, 0, 10000 ) )
+                {
+                    noise.SetSeed( seed );
+                }
+                
+                ImGui::SliderFloat3( "Frequency", noise.GetFrequency().getPtr(), 0, 1 );
+                ImGui::SliderFloat3( "Offset", noise.GetOffset().getPtr(), -1000, 1000 );
+                
+                ImGui::NewLine();
+                
                 // Fractal Type
                 {
                     vector < string > types = {
@@ -138,19 +151,6 @@ public:
                         if ( current == 2 ) noise.SetFractalType( ofxFastNoise::FractalType::RigidMulti );
                     }
                 }
-                
-                ImGui::NewLine();
-                
-                static int seed = noise.GetSeed();
-                if ( ImGui::SliderInt( "Seed", &seed, 0, 10000 ) )
-                {
-                    noise.SetSeed( seed );
-                }
-                
-                ImGui::SliderFloat3( "Frequency", noise.GetFrequency().getPtr(), 0, 1 );
-                ImGui::SliderFloat3( "Offset", noise.GetOffset().getPtr(), -1000, 1000 );
-                
-                ImGui::NewLine();
                 
                 static int fractalOctaves = noise.GetFractalOctaves();
                 if ( ImGui::SliderInt( "Fractal Octaves", &fractalOctaves, 0, 10 ) )
