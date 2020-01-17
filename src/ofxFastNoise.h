@@ -152,6 +152,11 @@ public:
     ofVec4f & GetFrequency() { return frequency; }
     
 private:
+    inline FN_DECIMAL getX( FN_DECIMAL x ) const { return (x + offset.x) * frequency.x; }
+    inline FN_DECIMAL getY( FN_DECIMAL y ) const { return (y + offset.y) * frequency.y; }
+    inline FN_DECIMAL getZ( FN_DECIMAL z ) const { return (z + offset.z) * frequency.z; }
+    inline FN_DECIMAL getW( FN_DECIMAL w ) const { return (w + offset.w) * frequency.w; }
+    
     ofVec4f offset;
     ofVec4f frequency;
     
@@ -160,79 +165,57 @@ private:
 // ofDefaultVec2
 template<> FN_DECIMAL ofxFastNoise::GetValue< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetValue( xx, yy );
+    return FastNoise::GetValue( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetValueFractal< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetValueFractal( xx, yy );
+    return FastNoise::GetValueFractal( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetPerlin< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetPerlin( xx, yy );
+    return FastNoise::GetPerlin( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetPerlinFractal< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetPerlinFractal( xx, yy );
+    return FastNoise::GetPerlinFractal( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetSimplex< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetSimplex( xx, yy );
+    return FastNoise::GetSimplex( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetSimplexFractal< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetSimplexFractal( xx, yy );
+    return FastNoise::GetSimplexFractal( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetCellular< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetCellular( xx, yy );
+    return FastNoise::GetCellular( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetWhiteNoise< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetWhiteNoise( xx, yy );
+    return FastNoise::GetWhiteNoise( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetCubic< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetCubic( xx, yy );
+    return FastNoise::GetCubic( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetCubicFractal< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return FastNoise::GetCubicFractal( xx, yy );
+    return FastNoise::GetCubicFractal( getX( v.x ), getY( v.y ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetNoise< ofDefaultVec2 >( ofDefaultVec2 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    return ofxFastNoise::GetNoise( xx, yy );
+    return ofxFastNoise::GetNoise( getX( v.x ), getY( v.y ) );
 }
 
 template<> ofDefaultVec2 ofxFastNoise::GetGradientPerturb< ofDefaultVec2 >()
@@ -247,19 +230,11 @@ template<> ofDefaultVec2 ofxFastNoise::GetGradientPerturb< ofDefaultVec2 >()
 // ofDefaultVec4
 template<> FN_DECIMAL ofxFastNoise::GetSimplex< ofDefaultVec4 >( ofDefaultVec4 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (v.z + offset.z) * frequency.z;
-    const FN_DECIMAL ww = (v.w + offset.w) * frequency.w;
-    return FastNoise::GetSimplex( xx, yy, zz, ww );
+    return FastNoise::GetSimplex( getX( v.x ), getY( v.y ), getZ( v.z ), getW( v.w ) );
 }
 
 template<> FN_DECIMAL ofxFastNoise::GetWhiteNoise< ofDefaultVec4 >( ofDefaultVec4 v ) const
 {
-    const FN_DECIMAL xx = (v.x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (v.y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (v.z + offset.z) * frequency.z;
-    const FN_DECIMAL ww = (v.w + offset.w) * frequency.w;
-    return FastNoise::GetWhiteNoise( xx, yy, zz, ww );
+    return FastNoise::GetSimplex( getX( v.x ), getY( v.y ), getZ( v.z ), getW( v.w ) );
 }
 

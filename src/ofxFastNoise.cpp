@@ -9,167 +9,112 @@
 
 FN_DECIMAL ofxFastNoise::GetValue( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetValue( xx, yy );
+    return FastNoise::GetValue( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetValue( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetValue( xx, yy, zz );
+    return FastNoise::GetValue( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetValueFractal( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetValueFractal( xx, yy );
+    return FastNoise::GetValueFractal( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetValueFractal( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetValueFractal( xx, yy, zz );
+    return FastNoise::GetValueFractal( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetPerlin( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetPerlin( xx, yy );
+    return FastNoise::GetPerlin( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetPerlin( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetPerlin( xx, yy, zz );
+    return FastNoise::GetPerlin( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetPerlinFractal( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetPerlinFractal( xx, yy );
+    return FastNoise::GetPerlinFractal( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetPerlinFractal( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetPerlinFractal( xx, yy, zz );
+    return FastNoise::GetPerlinFractal( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetSimplex( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetSimplex( xx, yy );
+    return FastNoise::GetSimplex( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetSimplex( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetSimplex( xx, yy, zz );
+    return FastNoise::GetSimplex( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetSimplexFractal( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetSimplexFractal( xx, yy );
+    return FastNoise::GetSimplexFractal( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetSimplexFractal( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetSimplexFractal( xx, yy, zz );
+    return FastNoise::GetSimplexFractal( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetCellular( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetCellular( xx, yy );
+    return FastNoise::GetCellular( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetCellular( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetCellular( xx, yy, zz );
+    return FastNoise::GetCellular( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetWhiteNoise( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetWhiteNoise( xx, yy );
+    return FastNoise::GetWhiteNoise( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetWhiteNoise( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetWhiteNoise( xx, yy, zz );
+    return FastNoise::GetWhiteNoise( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetCubic( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetCubic( xx, yy );
+    return FastNoise::GetCubic( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetCubic( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetCubic( xx, yy, zz );
+    return FastNoise::GetCubic( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetCubicFractal( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetCubicFractal( xx, yy );
+    return FastNoise::GetCubicFractal( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetCubicFractal( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetCubicFractal( xx, yy, zz );
+    return FastNoise::GetCubicFractal( getX( x ), getY( y ), getZ( z ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetNoise( FN_DECIMAL x, FN_DECIMAL y ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    return FastNoise::GetNoise( xx, yy );
+    return FastNoise::GetNoise( getX( x ), getY( y ) );
 }
 
 FN_DECIMAL ofxFastNoise::GetNoise( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z ) const
 {
-    const FN_DECIMAL xx = (x + offset.x) * frequency.x;
-    const FN_DECIMAL yy = (y + offset.y) * frequency.y;
-    const FN_DECIMAL zz = (z + offset.z) * frequency.z;
-    return FastNoise::GetNoise( xx, yy, zz );
+    return FastNoise::GetNoise( getX( x ), getY( y ), getZ( z ) );
 }
 
 
