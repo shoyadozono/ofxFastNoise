@@ -119,13 +119,28 @@ public:
     }
     
     template < typename T >
-    T GetGradientPerturb()
+    T GetGradientPerturb( T v )
     {
-        T v;
-        FastNoise::SetFrequency( frequency.x );
-        FastNoise::GradientPerturb( v.x, v.y, v.z );
-        FastNoise::SetFrequency( 1 );
-        return v;
+        T tmp;
+        tmp.x = getX( v.x );
+        tmp.y = getY( v.y );
+        tmp.z = getZ( v.z );
+        FastNoise::GradientPerturb( tmp.x, tmp.y, tmp.z );
+        return tmp;
+    }
+    
+    ofDefaultVec2 GetGradientPerturb( FN_DECIMAL x, FN_DECIMAL y )
+    {
+        ofDefaultVec2 tmp( getX( x ), getY( y ) );
+        FastNoise::GradientPerturb( tmp.x, tmp.y );
+        return tmp;
+    }
+    
+    ofDefaultVec3 GetGradientPerturb( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z )
+    {
+        ofDefaultVec3 tmp( getX( x ), getY( y ), getZ( z ) );
+        FastNoise::GradientPerturb( tmp.x, tmp.y, tmp.z );
+        return tmp;
     }
     
     void SetOffset( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z, FN_DECIMAL w )
@@ -218,13 +233,13 @@ template<> FN_DECIMAL ofxFastNoise::GetNoise< ofDefaultVec2 >( ofDefaultVec2 v )
     return ofxFastNoise::GetNoise( getX( v.x ), getY( v.y ) );
 }
 
-template<> ofDefaultVec2 ofxFastNoise::GetGradientPerturb< ofDefaultVec2 >()
+template<> ofDefaultVec2 ofxFastNoise::GetGradientPerturb< ofDefaultVec2 >( ofDefaultVec2 v )
 {
-    ofDefaultVec2 v;
-    FastNoise::SetFrequency( frequency.x );
-    FastNoise::GradientPerturb( v.x, v.y );
-    FastNoise::SetFrequency( 1 );
-    return v;
+    ofDefaultVec2 tmp;
+    tmp.x = getX( v.x );
+    tmp.y = getY( v.y );
+    FastNoise::GradientPerturb( tmp.x, tmp.y );
+    return tmp;
 }
 
 // ofDefaultVec4
