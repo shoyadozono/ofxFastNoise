@@ -143,7 +143,7 @@ public:
         return tmp;
     }
     
-    void SetOffset( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z, FN_DECIMAL w )
+    void SetOffset( FN_DECIMAL x, FN_DECIMAL y, FN_DECIMAL z, FN_DECIMAL w = 0 )
     {
         offset = ofVec4f( x, y, z, w );
     }
